@@ -10,6 +10,11 @@ test('create manager profile', () => {
   expect(manager.offNumber).toEqual(expect.any(Number));
 });
 
+test('Get Manager office number', () => {
+  const manager = new Manager('Ren',1, 'ren123@gmail.com',12345);
+  expect(manager.getoffNumber()).toEqual(manager.offNumber);
+});
+
 test('Get manager role', () => {
   const manager = new Manager('Ren',1,'ren123@gmail.com',12345);
   expect('Manager').toEqual(manager.getRole());
