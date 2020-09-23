@@ -1,0 +1,26 @@
+{
+  "name": "employee-profile-generator",
+  "version": "1.0.0",
+  "description": "Creates an HTML page with employee info.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aadi1988/employee-profile-generator.git"
+  },
+  "author": "Aaditi Pai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aadi1988/employee-profile-generator/issues"
+  },
+  "homepage": "https://github.com/aadi1988/employee-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3",
+    "jest": "^26.4.2"
+  }
+}
