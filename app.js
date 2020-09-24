@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
-//const generatePage = require('./src/generatePage');
+const generatePage = require('./src/generatePage');
 const engList = [];
 const internList = [];
 let manager;
@@ -72,6 +72,12 @@ const confirmGetInfo = () => {
               console.log(manager);
               console.log(engList);
               console.log(internList);
+              const templateData = {
+                  'manager' : manager,
+                  'engineer' : engList,
+                  'intern': internList
+              };
+              return templateData;
         }
         else if(answers.empRole === 'Engineer'){
             getEngineerInfo();
@@ -105,8 +111,14 @@ const promptUser = () => {
     }]).then(answers => {
         manager = new Manager(answers.mgrName,answers.empId,answers.email,answers.mgrOffNumber);
         console.log(manager); 
-        confirmGetInfo(); 
+        const templateData = confirmGetInfo(); 
+        return templateData;
     })
 }
 
-promptUser();
+promptUser()
+   .then(templateData => {
+        return generatePage(templateData);
+   }).then(data => {
+        console.log(data);
+   })
