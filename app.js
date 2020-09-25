@@ -5,6 +5,7 @@ const Intern = require('./lib/Intern');
 const generatePage = require('./src/generatePage');
 const engList = [];
 const internList = [];
+const fs = require('fs');
 let manager;
 
 const getEngineerInfo = () => {
@@ -77,7 +78,12 @@ const confirmGetInfo = () => {
                   'engineer' : engList,
                   'intern': internList
               };
-              return templateData;
+              let data = generatePage(templateData);
+              console.log(data);
+              fs.writeFile('index.html',data,err => {
+                  if(err) throw err;
+                  console.log('check html file');
+              })
         }
         else if(answers.empRole === 'Engineer'){
             getEngineerInfo();
@@ -110,15 +116,18 @@ const promptUser = () => {
         message: 'What\'s the manager\'s office number?'
     }]).then(answers => {
         manager = new Manager(answers.mgrName,answers.empId,answers.email,answers.mgrOffNumber);
-        console.log(manager); 
-        const templateData = confirmGetInfo(); 
-        return templateData;
+        console.log(manager);
+       // confirmGetInfo().then(templateData => {
+        //    return templateData;
+       // }); 
+        return manager;
     })
 }
 
-promptUser()
-   .then(templateData => {
-        return generatePage(templateData);
-   }).then(data => {
-        console.log(data);
-   })
+
+promptUser().then(data => {
+     confirmGetInfo().then(templateData => {
+      
+     });
+     
+})

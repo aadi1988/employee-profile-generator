@@ -1,4 +1,61 @@
 
+const generateVcardsEng = (dataEng) => {
+   console.log(dataEng);
+   if (dataEng){
+     return `
+         
+         ${dataEng.map(x => {
+            return `
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
+               <div class="card">
+                  <div class="header bg-primary text-center text-white">
+                    <h5>${x.name}</h5>
+                    <span class="d-flex justify-content-center"><i class="fa fa-laptop" aria-hidden="true"></i><h5>${x.getRole()}</h5></span>
+                  </div>
+                  <div class="card-body">
+                     <ul class="list-group list-group-flush border border-primary">
+                        <li class="list-group-item text-center">${x.id}</li>
+                        <li class="list-group-item text-center">${x.email}</li>
+                        <li class="list-group-item text-center">${x.github}</li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+           `;
+         }).join('')}
+      `;
+   };
+};
+
+const generateVcardsInt = (dataInt) => {
+   if(dataInt){
+      return `
+         
+         ${dataInt.map(x => {
+            return `
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-2">
+               <div class="card">
+                  <div class="header bg-primary text-center text-white">
+                    <h5>${x.name}</h5>
+                    <span class="d-flex justify-content-center"><i class="fa fa-laptop" aria-hidden="true"></i><h5>${x.getRole()}</h5></span>
+                  </div>
+                  <div class="card-body">
+                    <ul class="list-group list-group-flush border border-primary">
+                      <li class="list-group-item text-center">${x.id}</li>
+                      <li class="list-group-item text-center">${x.email}</li>
+                      <li class="list-group-item text-center">${x.school}</li>
+                    </ul>
+                  </div>
+               </div>
+            </div>
+            `
+         })}
+      `
+   }
+};
+
+
+
 module.exports = (templateData) => {
    console.log(templateData);
    const {manager,engineer,intern} = templateData;
@@ -19,6 +76,27 @@ module.exports = (templateData) => {
        </nav>
        <main>
            <div class="container">
+               <div class="row mt-4">
+                  <div class="col-sm-12 col-md-12 col-lg-12 mt-2">
+                      <div class="card">
+                        <div class="header bg-primary text-center text-white">
+                           <h5>${manager.name}</h5>
+                           <span class="d-flex justify-content-center"><i class="fas fa-mug-hot" aria-hidden="true"></i><h5>${manager.getRole()}</h5></span>
+                        </div>
+                      <div class="card-body">
+                         <ul class="list-group list-group-flush border border-primary">
+                             <li class="list-group-item text-center">${manager.id}</li>
+                             <li class="list-group-item text-center">${manager.email}</li>
+                             <li class="list-group-item text-center">${manager.offNumber}</li>
+                         </ul>
+                      </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="row mt-4">
+                   ${generateVcardsEng(engineer)}
+                   ${generateVcardsInt(intern)}
+               </div>
            </div>
          
        </main>
