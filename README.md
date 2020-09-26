@@ -1,8 +1,9 @@
-# employee-profile-generator
-Employee Profile Generator
+# Employee Profile Generator
   [![License](<https://img.shields.io/static/v1?label=License&message=MIT&color=green>)]()
 ## Description
 Creates a webpage collection of employee details for a given team. Manager, Engineer and Intern details are given by the user.
+ScreenCastify Link: https://drive.google.com/file/d/1K48UthYwEQxSu_21xyV7Zm94CPm-uyEJ/view
+
 ## Table of contents
 [Installation](#installation-instructions)  
 [License](#license)  
