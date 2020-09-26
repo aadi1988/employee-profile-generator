@@ -1,4 +1,4 @@
-
+//generate html for engineer
 const generateVcardsEng = (dataEng) => {
    console.log(dataEng);
    if (dataEng){
@@ -14,9 +14,9 @@ const generateVcardsEng = (dataEng) => {
                   </div>
                   <div class="card-body">
                      <ul class="list-group list-group-flush border border-primary">
-                        <li class="list-group-item text-center">${x.id}</li>
-                        <li class="list-group-item text-center">${x.email}</li>
-                        <li class="list-group-item text-center">${x.github}</li>
+                        <li class="list-group-item text-center"><i class="fas fa-id-card-alt">: </i>${x.id}</li>
+                        <li class="list-group-item text-center"><i class="fas fa-envelope">: </i><a href="mailto:${x.email}@email.com">${x.email}</a></li>
+                        <li class="list-group-item text-center"><i class="fab fa-github">: </i><a href="https://www.github.com/${x.github}" target="_blank">${x.github}</a></li>
                       </ul>
                   </div>
               </div>
@@ -27,6 +27,7 @@ const generateVcardsEng = (dataEng) => {
    };
 };
 
+//generate html for intern
 const generateVcardsInt = (dataInt) => {
    if(dataInt){
       return `
@@ -41,9 +42,9 @@ const generateVcardsInt = (dataInt) => {
                   </div>
                   <div class="card-body">
                     <ul class="list-group list-group-flush border border-primary">
-                      <li class="list-group-item text-center">${x.id}</li>
-                      <li class="list-group-item text-center">${x.email}</li>
-                      <li class="list-group-item text-center">${x.school}</li>
+                      <li class="list-group-item text-center"><i class="fas fa-id-card-alt">: </i>${x.id}</li>
+                      <li class="list-group-item text-center"><i class="fas fa-envelope">: </i><a href="mailto:${x.email}@email.com">${x.email}</a></li>
+                      <li class="list-group-item text-center"><i class="fas fa-school">: </i>${x.school}</li>
                     </ul>
                   </div>
                </div>
@@ -55,7 +56,7 @@ const generateVcardsInt = (dataInt) => {
 };
 
 
-
+//base html and manager html
 module.exports = (templateData) => {
    console.log(templateData);
    const {manager,engineer,intern} = templateData;
@@ -85,9 +86,9 @@ module.exports = (templateData) => {
                         </div>
                       <div class="card-body">
                          <ul class="list-group list-group-flush border border-primary">
-                             <li class="list-group-item text-center">${manager.id}</li>
-                             <li class="list-group-item text-center">${manager.email}</li>
-                             <li class="list-group-item text-center">${manager.offNumber}</li>
+                             <li class="list-group-item text-center"><i class="fas fa-id-card-alt">: </i>${manager.id}</li>
+                             <li class="list-group-item text-center"><i class="fas fa-envelope">: </i><a href="mailto:${manager.email}@email.com">${manager.email}</a></li>
+                             <li class="list-group-item text-center"><i class="fas fa-phone">: </i>${manager.offNumber}</li>
                          </ul>
                       </div>
                     </div>
